@@ -15,7 +15,7 @@ Libraries and features that I will be using/implementing include:
 
 User interface of the project 
 
-The interface will be the map itself, with the various nodes (possible locations) visible. Clicking on a node will activate it, and then allow you to select a second node (your destination). These both change colour. Then, once both nodes are selected, the shortest path between the two locations will be drawn on the map. There will also be the option of entering the destination/choosing it from a list and then constructing a path from the starting node selected and then drawing the path.
+The interface will be the map itself, with the various nodes (possible locations) visible. Clicking on a node will activate it, and then allow you to select a second node (your destination). These both change colour. Then, once both nodes are selected, the shortest path between the two locations will be drawn on the map. There will also be the option of entering the destination/choosing it from a list and then constructing a path from the starting node to the destination.
 
 
 List of features that I will implement and demo by the first milestone:
