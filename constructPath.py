@@ -38,9 +38,6 @@ def drawPath():
     toDelete.append(line)
 
 
-
-
-
 def drawCircle(x, y, colour):
     global canvas
     c = canvas.create_oval(x-5, y-5, x+5, y+5, fill = colour) #should draw a circle of diameter 10, with the center of the circle the coordinates of the node
