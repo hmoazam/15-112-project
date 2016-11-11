@@ -1,6 +1,18 @@
-import Tkinter
-#import networkx as nx
+#Modification history:
+#Date         Start time          End time
+#4/11/2016    1.00pm              6.00pm
+#5/11/2016    9.00am              12 noon
+#5/11/2016    2.00pm              8.00pm
+#6/11/2016    6.30pm              8.00pm
+#6/11/2016    10.00pm             1.00am
+#7/11/2016    10.30am             12.30pm
+#7/11/2016    4.00pm              8.00pm
+#8/11/2016    3.00pm              7.00pm
+#9/11/2016    12 midnight         2.00am
 
+
+
+import Tkinter
 #f = open("Nodesfile.txt", "a+") # a+ means can append and read open file for appending so doesn't delete old contents
 #f.write("hi")
 #global allNodes
@@ -147,10 +159,10 @@ def getCoord(event):#bind to single left click
     #print "y", event.y
 
 listN = [] #save neighbours' coordinates into this - delete each time
-listNC = [] #save the nodes that are neighbours - the circles themselves
+listNC = [] #save the nodes that are neighbours - the circles themselves, so then can delete
 
 listDone = [] # save nodes' coordinates (I've done neighbours for these)
-listDoneC = []
+listDoneC = [] #saves the circle objects themselves so then can delete
 #listDoneBfr = [] # might not need this list....
 #how about a dictionary with the node and its neighbours instead?? no need
 
