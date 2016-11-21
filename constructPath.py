@@ -34,7 +34,7 @@ def drawPath():
                 y = int(float(List[2]))
                 forLine.append(x)
                 forLine.append(y)
-    line = canvas.create_line(forLine, fill = "blue", arrow=Tkinter.LAST, width = 3) #smooth or not?
+    line = canvas.create_line(forLine, fill = "black", arrow=Tkinter.LAST, width = 3) #smooth or not?
     toDelete.append(line)
 
 
@@ -110,6 +110,16 @@ canvas.pack(fill = Tkinter.BOTH, expand = Tkinter.YES)
 
 photo = Tkinter.PhotoImage(file="map.gif")
 canvas.create_image(0, 0, image = photo, anchor = "nw")
+
+def hello():
+    print "hi"
+
+menubar = Tkinter.Menu(wnd)
+#menubar.pack()
+menubar.add_command(label="Start")# command=hello)
+menubar.add_command(label ="Destination")
+
+wnd.config(menu=menubar)
 
 f = open("Nodesfile.txt", "r")
 info = f.readlines()
