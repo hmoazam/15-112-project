@@ -1,0 +1,3 @@
+Instructions for using the app:
+
+All the files in the master branch need to be downloaded to the same folder. To run the app, open the file named 'start.py'. Instructions for using the app are given on the window itself
