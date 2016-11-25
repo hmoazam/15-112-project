@@ -1,6 +1,7 @@
 #Modification history:
 #Date          Start time           End time
 #11/11/2016    3.00pm               5.30pm
+#21/11/2016    8.30pm
 
 import Tkinter
 import makeGraph as mG
@@ -34,7 +35,7 @@ def drawPath():
                 y = int(float(List[2]))
                 forLine.append(x)
                 forLine.append(y)
-    line = canvas.create_line(forLine, fill = "black", arrow=Tkinter.LAST, width = 3) #smooth or not?
+    line = canvas.create_line(forLine, fill = "blue", arrow=Tkinter.LAST, width = 3) #smooth or not?
     toDelete.append(line)
 
 
@@ -42,8 +43,6 @@ def drawCircle(x, y, colour):
     global canvas
     c = canvas.create_oval(x-5, y-5, x+5, y+5, fill = colour) #should draw a circle of diameter 10, with the center of the circle the coordinates of the node
     return c #will this work to save the circle itself in the list??
-
-
 
 def getNode2(event):
     global end
@@ -64,7 +63,6 @@ def getNode2(event):
             end = int(nodeData2[0]) #the node number is at index 0 in the list that we just created
             toDelete.append(c)
             drawPath()
-
 
 def getNode1(event): # note this is different to the function made in the setup file
     global start
@@ -111,16 +109,6 @@ canvas.pack(fill = Tkinter.BOTH, expand = Tkinter.YES)
 photo = Tkinter.PhotoImage(file="map.gif")
 canvas.create_image(0, 0, image = photo, anchor = "nw")
 
-def hello():
-    print "hi"
-
-menubar = Tkinter.Menu(wnd)
-#menubar.pack()
-menubar.add_command(label="Start")# command=hello)
-menubar.add_command(label ="Destination")
-
-wnd.config(menu=menubar)
-
 f = open("Nodesfile.txt", "r")
 info = f.readlines()
 # getting the value of the count. Will need to change this code once I start doing neighbours too since then the last line won't be the final node I made, it will be something else, unless I decide to make a completely separate file for the neighbours
@@ -158,5 +146,46 @@ toDelete = []
 
 canvas.bind("<Button-1>", getNode1)
 canvas.bind("<Button-3>", getNode2)
+
+def start(node):
+    print node
+
+def dest(node):
+    print node
+
+menubar = Tkinter.Menu(wnd)
+
+subMenu1 = Tkinter.Menu(menubar)
+subMenu2 = Tkinter.Menu(menubar)
+menubar.add_cascade(label = "Start", menu = subMenu1)
+menubar.add_cascade(label = "Destination", menu = subMenu2)
+
+rooms = open("rooms.txt", "r")
+r = rooms.readlines()
+#print r
+
+for i in r:
+    info1 = i.strip()
+    info2 = info1.split(",")
+    room = info2[1]
+    node = info2[0]
+    subMenu1.add_command(label = room, command = lambda x = node: start(x))
+
+# rooms.close() #need to reopen the file so that the cursor goes back to the start
+#
+# rooms2 = open("rooms.txt", "r")
+# r2 = rooms2.readlines()
+
+for j in r:
+    info1 = j.strip()
+    info2 = info1.split(",")
+    room = info2[1]
+    node = info2[0]
+    subMenu2.add_command(label = room, command = lambda x = node: dest(x))
+
+rooms.close()
+
+wnd.config(menu=menubar)
+
 
 wnd.mainloop()
